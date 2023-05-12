@@ -1,9 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
-import { createServer, Model } from "miragejs";
-
-// utilizar o mirage para criar uma API, o banco de dados fica inicialmente vazio
 createServer({
   models: {
     transaction: Model,
@@ -29,20 +23,3 @@ createServer({
     });
   },
 });
-
-import axios from "axios";
-
-axios
-  .get("http://localhost:3000/api/handler")
-  .then((response) => {
-    console.log(response.data);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
